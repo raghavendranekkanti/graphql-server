@@ -1,0 +1,138 @@
+{
+  "users": [
+    {
+      "id": 38,
+      "age": 23,
+      "name": "Raghavendra Nekkanti",
+      "email": "nekkanti.raghavendra2@gmail.com",
+      "friends": [
+        {
+          "id": 41
+        },
+        {
+          "id": 55
+        },
+        {
+          "id": 45
+        },
+        {
+          "id": 48
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Hema Sundar",
+      "age": 23,
+      "email": "ghs0328@gmail.com",
+      "friends": [
+        {
+          "id": 38
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Sri Sabareesh Uppu",
+      "age": 23,
+      "email": "uppu.sabareesh@gmail.com",
+      "friends": [
+        {
+          "id": 38
+        },
+        {
+          "id": 55
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Veerabadhram Uppu",
+      "age": 23,
+      "email": "uppuveeru@gmail.com",
+      "friends": [
+        {
+          "id": 41
+        },
+        {
+          "id": 55
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Ramana Babu Siragam",
+      "age": 23,
+      "email": "raaman.siragam@gmail.com",
+      "friends": [
+        {
+          "id": 41
+        },
+        {
+          "id": 38
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Netaji Kancharapu",
+      "age": 23,
+      "email": "netajik@gmail.com",
+      "friends": [
+        {
+          "id": 55
+        },
+        {
+          "id": 48
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "React Monaco Editor",
+      "owner": {
+        "id": 38
+      },
+      "maintainers": [
+        {
+          "id": 55
+        },
+        {
+          "id": 48
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "GraphQl Server",
+      "owner": {
+        "id": 55
+      },
+      "maintainers": [
+        {
+          "id": 38
+        },
+        {
+          "id": 48
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "GraphQl Client",
+      "owner": {
+        "id": 38
+      },
+      "maintainers": [
+        {
+          "id": 45
+        },
+        {
+          "id": 48
+        }
+      ]
+    }
+  ]
+}
