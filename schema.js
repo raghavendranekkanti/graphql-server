@@ -1,5 +1,5 @@
 import { gql } from 'apollo-server-express'
-import {userModel, projectModel} from './models'
+import {userModel, projectModel, languageModel, attributeModel} from './models'
 
 export const typeDefs = gql`
     type User {
@@ -15,6 +15,18 @@ export const typeDefs = gql`
         name: String
         owner: User
         maintainers: [User]
+        languages: [Language]
+    }
+
+    type Attribute {
+        id: ID
+        name: String
+    }
+
+    type Language {
+        id: ID
+        name: String
+        attributes: [Attribute]
     }
 
     input CreateUserInput {
@@ -32,13 +44,28 @@ export const typeDefs = gql`
         maintainers: [Int]
     }
 
+    input CreateA {
+        id: Int
+        name: String
+    }
+
+    input CreateL {
+        id: Int
+        name: String
+        attributes: [Int]
+    }
+
     type Mutation {
         createUser(input: CreateUserInput!): User
         createProject(input: CreateProjectInput!): Project
+        createAttribute(input: CreateA!): Attribute
+        createLanguage(input: CreateL!): Language
     }
     type Query {
         users: [User]
         projects: [Project]
+        attributes: [Attribute]
+        languages: [Language]
     }
 `
 
@@ -49,6 +76,12 @@ export const resolvers = {
     },
     projects() {
         return projectModel.list()
+    },
+    attributes() {
+      return attributeModel.list()
+    },
+    languages() {
+      return languageModel.list()
     }
   },
   User: {
@@ -79,6 +112,24 @@ export const resolvers = {
         return Promise.all(
             source.maintainers.map(({ id }) => userModel.find(id))
         )
+    },
+    languages(source) {
+        if (!source.languages || !source.languages.length) {
+          return
+        }
+        return Promise.all(
+            source.languages.map(({ id }) => languageModel.find(id))
+        )
+    }
+  },
+  Language: {
+    attributes(source) {
+      if (!source.attributes || !source.attributes.length) {
+        return
+      }
+      return Promise.all(
+          source.attributes.map(({ id }) => attributeModel.find(id))
+      )
     }
   },
   Mutation: {
@@ -87,6 +138,12 @@ export const resolvers = {
     },
     createProject(source, args) {
         return projectModel.create(args.input)
+    },
+    createLanguage(source, args) {
+        return languageModel.create(args.input)
+    },
+    createAttribute(source, args) {
+        return attributeModel.create(args.input)
     }
   }
 }
