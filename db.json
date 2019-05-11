@@ -134,5 +134,74 @@
         }
       ]
     }
+  ],
+  "attributes": [
+    {
+      "id": 1,
+      "name": "interpreted"
+    },
+    {
+      "id": 2,
+      "name": "high-level"
+    },
+    {
+      "id": 3,
+      "name": "curly-bracket syntax"
+    },
+    {
+      "id": 4,
+      "name": "dynamic typing"
+    },
+    {
+      "id": 5,
+      "name": "prototype based"
+    }
+  ],
+  "languages": [
+    {
+      "id": 1,
+      "name": "Ruby",
+      "attributes": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "javascript",
+      "attributes": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 5
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "python",
+      "attributes": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    }
   ]
 }
