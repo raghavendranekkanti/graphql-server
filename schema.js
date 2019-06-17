@@ -44,6 +44,10 @@ export const typeDefs = gql`
         maintainers: [Int]
     }
 
+    input UserId {
+      id: Int
+    }
+
     input CreateA {
         id: Int
         name: String
@@ -66,6 +70,7 @@ export const typeDefs = gql`
         projects: [Project]
         attributes: [Attribute]
         languages: [Language]
+        user(input: UserId): User
     }
 `
 
@@ -82,11 +87,21 @@ export const resolvers = {
     },
     languages() {
       return languageModel.list()
+    },
+    user(source, args) {
+      console.log(args)
+      if (!args.input || !args.input.id) {
+        return
+      }
+      console.log(args)
+      return userModel.find(args.input.id)
     }
+
   },
   User: {
     friends(source) {
-      if (!source.friends || !source.friends.length) {
+      console.log(source)
+      if (!source.friends || !source.friends.length || !source) {
         return
       }
 
